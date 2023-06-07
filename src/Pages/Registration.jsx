@@ -1,10 +1,23 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 
 const Registration = () => {
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+    const { createUser } = useContext(AuthContext);
+    
+  const onSubmit = data => {
+    console.log(data);
+    createUser(data.email, data.password)
+    .then(result => {
+        const signedUser = result.user;
+        console.log(signedUser);
+    });
+
+    reset();
+}
 
     return (
         <div className="bg-cyan-50 py-8">
@@ -14,33 +27,33 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" {...register("name" , { required: true })} placeholder="email" className="input input-bordered" />
+                                <input type="text" {...register("name" , { required: true })} placeholder="Name" className="input input-bordered" />
                                 {errors.name && <span className="text-red-600">Name is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                                <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
                                 {errors.email && <span className="text-red-600">Email is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" {...register("password", { 
+                                <input type="password" {...register("password", { 
                                     required: true,
                                     pattern: {
-                                        value: /^[a-z\d]{1,5}$/,
+                                        value: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
                                         message:
-                                          'Password must be less than 6 characters, should not have capital letters or special characters.',
+                                          'Password must be Minimum 6 characters,contain at least one uppercase letter, one lowercase letter, one number and one special character',
                                       },
                                      })} placeholder="password" className="input input-bordered" />
                                 {errors.password && <span className="text-red-600">{errors.password.message}</span>}
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="text" {...register("confirmPassword", { required: true })} placeholder="Confirm Password" className="input input-bordered" />
+                                <input type="password" {...register("confirmPassword", { required: true })} placeholder="Confirm Password" className="input input-bordered" />
                                 {errors.confirmPassword && <span className="text-red-600">Password must be confirmed</span>}
 
                                 <label className="label">

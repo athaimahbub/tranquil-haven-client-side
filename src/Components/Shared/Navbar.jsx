@@ -49,7 +49,8 @@ const Navbar = () => {
                         </label>
                     } */}
 
-                        <Link to='/login' className="btn btn-sm bg-cyan-600 text-white">Login</Link>
+                        <Link to='/login' className="btn btn-sm hover:bg-cyan-700  bg-cyan-600 text-white">Login</Link>
+                        
                     </div>
                 </div>
             </div>

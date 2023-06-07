@@ -3,19 +3,33 @@ import loginImage from '../assets/authentication.gif'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
+import { useForm } from 'react-hook-form';
 
 
 const Login = () => {
 
     const { signIn } = useContext(AuthContext);
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
+    
+    
+  const onSubmit = data => {
+    console.log(data);
+    signIn(data.email, data.password)
+    .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+    });
 
-    const handleLogin = event => {
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        form.reset();
-        console.log(email, password)
+    reset();
+}
+
+    // const handleLogin = event => {
+    //     event.preventDefault();
+    //     const form = event.target;
+    //     const email = form.email.value;
+    //     const password = form.password.value;
+    //     form.reset();
+    //     console.log(email, password)
 
 
         // signIn(email, password)
@@ -24,7 +38,7 @@ const Login = () => {
         //         console.log(user);
         //     })
         //     .catch(error => console.log(error));
-    }
+    // }
 
 
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -32,6 +46,7 @@ const Login = () => {
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
+
     return (
         <div>
             <div className="hero min-h-screen bg-cyan-50">
@@ -39,12 +54,13 @@ const Login = () => {
 
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
-                        <form onSubmit={handleLogin}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                                <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                                {errors.email && <span className="text-red-600">Email is required</span>}
                             </div>
 
                             <label className="label ">
@@ -56,9 +72,17 @@ const Login = () => {
                                 <div className="relative">
                                     <input
                                         type={passwordVisible ? 'text' : 'password'}
-                                        name='password' placeholder="password"
+                                        {...register("password", { 
+                                            required: true,
+                                            pattern: {
+                                                value: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                                                message:
+                                                  'Password must be Minimum 6 characters, contain at least one uppercase letter, one lowercase letter, one number and one special character',
+                                              },
+                                             })} placeholder="password"
                                         className="input input-bordered w-full"
                                     />
+                                    {errors.password && <span className="text-red-600">{errors.password.message}</span>}
                                     <div
                                         className=" absolute top-4 right-4  cursor-pointer"
                                         onClick={togglePasswordVisibility}
@@ -77,7 +101,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                               <input className="btn btn-primary" type="submit" value="Login" />
+                               
                                 <button className="hover:bg-cyan-700  font-bold py-2 px-4 rounded bg-cyan-600 text-white">Login</button>
                             </div>
                             <div className="divider"></div>
