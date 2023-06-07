@@ -1,37 +1,58 @@
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 
-
 const Registration = () => {
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+
     return (
         <div className="bg-cyan-50 py-8">
             <div className="mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body ">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
+                        <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" {...register("name" , { required: true })} placeholder="email" className="input input-bordered" />
+                                {errors.name && <span className="text-red-600">Name is required</span>}
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
+                                <input type="text" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                                {errors.email && <span className="text-red-600">Email is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
+                                <input type="text" {...register("password", { 
+                                    required: true,
+                                    pattern: {
+                                        value: /^[a-z\d]{1,5}$/,
+                                        message:
+                                          'Password must be less than 6 characters, should not have capital letters or special characters.',
+                                      },
+                                     })} placeholder="password" className="input input-bordered" />
+                                {errors.password && <span className="text-red-600">{errors.password.message}</span>}
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="text" placeholder="Confirm Password" className="input input-bordered" />
+                                <input type="text" {...register("confirmPassword", { required: true })} placeholder="Confirm Password" className="input input-bordered" />
+                                {errors.confirmPassword && <span className="text-red-600">Password must be confirmed</span>}
 
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="text" placeholder="photo URL" className="input input-bordered" />
+                                <input type="text" {...register("photo", { required: true })} placeholder="photo URL" className="input input-bordered" />
+                                {errors.photo && <span className="text-red-600">Photo URL is required</span>}
 
                                 <label className="label">
                                     <span className="label-text"> Phone Number</span>
                                 </label>
-                                <input type="tel" placeholder=" Phone Number" className="input input-bordered" />
+                                <input type="tel" {...register("phoneNumber")} placeholder=" Phone Number" className="input input-bordered" />
                                
                             </div>
                             <div className="form-control mt-6">
@@ -44,7 +65,7 @@ const Registration = () => {
 
                                 <p>Already have an account?Do <Link to='/login' className='text-cyan-600 font-bold'>Login</Link></p>
 
-                        </div>
+                        </form>
                     </div>
         </div>
     );
