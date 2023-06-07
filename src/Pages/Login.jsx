@@ -55,7 +55,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-cyan-700 text-white">Login</button>
+                                <button className="hover:bg-cyan-700  font-bold py-2 px-4 rounded bg-cyan-600 text-white">Login</button>
                             </div>
                             <div className="divider"></div>
                             <button className=" bg-base-300  btn">

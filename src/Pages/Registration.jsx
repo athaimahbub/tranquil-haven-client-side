@@ -31,11 +31,11 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text"> Phone Number</span>
                                 </label>
-                                <input type="number" placeholder=" phoneNumber" className="input input-bordered" />
+                                <input type="tel" placeholder=" Phone Number" className="input input-bordered" />
                                
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-cyan-700 text-white">Registration</button>
+                                <button className=" hover:bg-cyan-700  font-bold py-2 px-4 rounded bg-cyan-600 text-white">Registration</button>
                             </div>
                             <div className="divider"></div>
                                 <button className=" bg-base-300  btn">
