@@ -5,6 +5,7 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
+import NotFoundPage from "../Pages/NotFoundPage";
 
 
 export  const router = createBrowserRouter([
@@ -26,4 +27,10 @@ export  const router = createBrowserRouter([
         }
       ]
     },
+
+
+    {
+      path:'*',
+      element:<NotFoundPage></NotFoundPage>
+    }
   ]);
