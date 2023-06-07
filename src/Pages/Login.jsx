@@ -32,20 +32,22 @@ const Login = () => {
                                 </label>
                                 <input type="text" placeholder="email" className="input input-bordered" />
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
 
-                                <div className="relative">
+                            <label className="label ">
+                                    <span className="label-text">Password</span>
+                            </label>
+
+                            <div className="form-control">
+                            
+                                <div className="flex items-center ">
                                     <input
                                         type={passwordVisible ? 'text' : 'password'}
                                         placeholder="password"
-                                        className="input input-bordered pr-10"
+                                        className="input input-bordered"
                                     />
                                     <div
-                                        className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                                        // className="relative inset-y-0 right-0 pr-3 flex items-center cursor-pointer" 
+                                        className="  cursor-pointer"
                                         onClick={togglePasswordVisibility}
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
@@ -58,6 +60,9 @@ const Login = () => {
                                         </svg>
                                     </div>
                                 </div>
+                               
+
+
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
