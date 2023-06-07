@@ -38,13 +38,13 @@ const Login = () => {
                                         className="input input-bordered w-full"
                                     />
                                     <div 
-                                        className=" absolute top-1 right-1  cursor-pointer"
+                                        className=" absolute top-4 right-4  cursor-pointer"
                                         onClick={togglePasswordVisibility}
                                     >
                                         
                                             {passwordVisible ? 
-                                                <AiFillEyeInvisible></AiFillEyeInvisible> :
-                                                <AiFillEye></AiFillEye>
+                                                
+                                                <AiFillEye></AiFillEye>:<AiFillEyeInvisible></AiFillEyeInvisible> 
                                             }
                                         
                                     </div>
