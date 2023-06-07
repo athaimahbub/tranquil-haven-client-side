@@ -19,9 +19,19 @@ const Registration = () => {
                                 </label>
                                 <input type="text" placeholder="password" className="input input-bordered" />
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
+                                <input type="text" placeholder="Confirm Password" className="input input-bordered" />
+
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="text" placeholder="photo URL" className="input input-bordered" />
+
+                                <label className="label">
+                                    <span className="label-text"> Phone Number</span>
+                                </label>
+                                <input type="number" placeholder=" phoneNumber" className="input input-bordered" />
                                
                             </div>
                             <div className="form-control mt-6">
