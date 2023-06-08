@@ -15,9 +15,12 @@ const Navbar = () => {
 
     const HeaderItems = <>
         <li className='text-cyan-600 font-bold text-base'><Link to="/">Home</Link></li>
-        <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Instructors</Link></li>
-        <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Classes</Link></li>
-        <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Dashboard</Link></li>
+        <li className='text-cyan-600 font-bold text-base'><Link to="/instructors">Instructors</Link></li>
+        <li className='text-cyan-600 font-bold text-base'><Link to="/class">Classes</Link></li>
+        {
+            user && 
+            <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Dashboard</Link></li>
+        }
 
 
     </>
@@ -42,6 +45,8 @@ const Navbar = () => {
                         {HeaderItems}
                     </ul>
                 </div>
+
+                
                 <div className="navbar-end">
 
                     {user ? <>

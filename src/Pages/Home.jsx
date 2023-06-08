@@ -1,10 +1,12 @@
+import Banner from "../Components/Banner/Banner";
+import Gallery from "../Components/Gallery/Gallery";
 
 
 const Home = () => {
     return (
-        <div>
-            
-            <h1>This is Home page........</h1>
+        <div> 
+            <Banner></Banner>
+            <Gallery></Gallery>
         </div>
     );
 };
