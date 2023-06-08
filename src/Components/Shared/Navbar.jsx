@@ -1,13 +1,23 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/tranquileHaven.jpg'
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
+import {BiUserCircle} from 'react-icons/bi';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut =() =>{
+        logOut()
+        .then(() => {})
+        .catch(error => console.log(error));
+    }
+
 
     const HeaderItems = <>
-        <li className='text-cyan-600 font-bold'><Link to="/">Home</Link></li>
-        <li className='text-cyan-600 font-bold'><Link to="/blogs">Instructors</Link></li>
-        <li className='text-cyan-600 font-bold'><Link to="/blogs">Classes</Link></li>
-        <li className='text-cyan-600 font-bold'><Link to="/blogs">Dashboard</Link></li>
+        <li className='text-cyan-600 font-bold text-base'><Link to="/">Home</Link></li>
+        <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Instructors</Link></li>
+        <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Classes</Link></li>
+        <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Dashboard</Link></li>
 
 
     </>
@@ -34,24 +44,25 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
 
-                    {/* {user ? <>
+                    {user ? <>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <img src={user.photoURL} title={user.displayName} />
                             </div>
                         </label>
-                        <Link to='/' className="btn btn-sm btn-primary text-white" onClick={handleLogOut}>Logout</Link>
+                        <Link to='/' className="btn btn-sm hover:bg-cyan-700  bg-cyan-600 text-white" onClick={handleLogOut}>Logout</Link>
                     </> : <>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <UserIcon className="h-10 w-8 text-gray-500" />
+                                
+                                <BiUserCircle className="h-10 w-10 text-cyan-600"></BiUserCircle>
                             </div>
                         </label>
-                    } */}
-
                         <Link to='/login' className="btn btn-sm hover:bg-cyan-700  bg-cyan-600 text-white">Login</Link>
-                        
-                    </div>
+                    </>
+                    }
+
+                </div>
                 </div>
             </div>
             );

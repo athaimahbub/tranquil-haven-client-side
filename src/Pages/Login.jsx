@@ -1,14 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImage from '../assets/authentication.gif'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
 import { useForm } from 'react-hook-form';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { app } from '../Firebase/firebase.config';
 
 
 const Login = () => {
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
 
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
     
     
@@ -18,28 +28,22 @@ const Login = () => {
     .then(result => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, {replace: true});
     });
 
     reset();
 }
 
-    // const handleLogin = event => {
-    //     event.preventDefault();
-    //     const form = event.target;
-    //     const email = form.email.value;
-    //     const password = form.password.value;
-    //     form.reset();
-    //     console.log(email, password)
-
-
-        // signIn(email, password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //     })
-        //     .catch(error => console.log(error));
-    // }
-
+const handleGoogleSignIn = () => {
+    // Handle Google Sign-in
+    signInWithPopup(auth, provider)
+    .then(result => {
+        const user =result.user;
+        console.log(user);
+        navigate(from, {replace: true});
+    })
+    .then(error => console.log('Error: ', error))
+  };
 
     const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -107,7 +111,7 @@ const Login = () => {
                             <div className="divider"></div>
 
                             <div className="form-control">
-                                <button className=" bg-base-300  btn">
+                                <button className=" bg-base-300  btn " onClick={handleGoogleSignIn}>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 488 512" className='fill-blue-600'><path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" /></svg>
                                     Login with Google</button>
                             </div>
