@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -31,13 +32,13 @@ const PopularInstructor = () => {
     
       return (
         <div>
-          <h2 className='text-center mt-8 mb-4 text-4xl text-cyan-700 font-bold'>Our Popular Instructors</h2>
+          <h2 className='text-center mt-12 mb-8 text-4xl text-cyan-700 font-bold'>Our Popular Instructors</h2>
         
         <div className='grid md:grid-cols-3 gap-4'>
           
           {topInstructors.map(instructor => (
             
-            <div key={instructor._id} className="card w-96 bg-base-100 shadow-xl">
+            <div key={instructor._id} className="card w-96 bg-cyan-50 shadow-xl">
                     <figure className="px-10 pt-10">
                         <div className="avatar">
                             <div className="w-52 rounded-full">
@@ -57,6 +58,10 @@ const PopularInstructor = () => {
                 </div>
           ))}
         </div>
+        <div className="text-center mt-6">
+                <Link to='/instructors' className="btn btn-sm hover:bg-cyan-700  bg-cyan-600 text-white">See All</Link>
+            </div>
+
         </div>
         
     );

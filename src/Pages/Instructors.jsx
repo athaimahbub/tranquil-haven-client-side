@@ -7,18 +7,14 @@ const Instructor = () => {
     const instructors = useInstructor();
 
     return (
+        <div>
+            <h2 className='text-center mt-4 mb-4 text-4xl text-cyan-700 font-bold'>Our Instructors</h2>
+        
         <div className='grid md:grid-cols-3 gap-4'>
 
             {instructors.map(instructor => (
-                // <div key={instructor._id}>
-                //   <img src={instructor.image} alt={instructor.name} />
-                //   <h3>{instructor.name}</h3>
-                //   <p>Email: {instructor.email}</p>
-                //   <p>Student Number: {instructor.student_number}</p>
-                //   <p>Classes: {instructor.classes.join(', ')}</p>
-                // </div>
 
-                <div key={instructor._id} className="card w-96 bg-base-100 shadow-xl">
+                <div key={instructor._id} className="card w-96 bg-cyan-50 shadow-xl">
                     <figure className="px-10 pt-10">
                         <div className="avatar">
                             <div className="w-52 rounded-full">
@@ -41,6 +37,7 @@ const Instructor = () => {
                 </div>
             ))}
         </div>
+     </div>
     );
 };
 

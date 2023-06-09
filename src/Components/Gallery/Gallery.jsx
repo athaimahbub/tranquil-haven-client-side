@@ -24,7 +24,7 @@ const Gallery = () => {
   
     return (
         <div className="container mx-auto mt-8">
-            <h2 className='text-center mb-8 text-4xl text-cyan-700 font-bold'>Tranquil Haven Gallery</h2>
+            <h2 className='text-center mt-12 mb-8 text-4xl text-cyan-700 font-bold'>Tranquil Haven Gallery</h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2" >
           {/* Photo items will be added here */}
