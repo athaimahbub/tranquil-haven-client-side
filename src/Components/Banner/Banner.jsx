@@ -30,7 +30,7 @@ const Banner = () => {
                 className="mySwiper"
                 
             >
-                <SwiperSlide>
+                <SwiperSlide >
                    <img src={slide1} alt="Slide 1" className="w-full h-screen rounded" />
                 </SwiperSlide>
                 <SwiperSlide>

@@ -10,6 +10,7 @@ import Classes from "../Pages/Classes";
 import NotFoundPage from "../Pages/NotFoundPage";
 import PrivateRoute from "./PrivateRoute";
 import Secret from "../Pages/Secret";
+import RecordedClass from "../Pages/RecordedClass";
 
 
 export  const router = createBrowserRouter([
@@ -37,10 +38,23 @@ export  const router = createBrowserRouter([
           path:'class',
           element:<Classes></Classes>
         },
+
+
+
+        {
+          path:'recordClass',
+          element:<RecordedClass></RecordedClass>
+        },
+
+        
         {
           path:'secret',
           element:<PrivateRoute><Secret></Secret></PrivateRoute>
         }
+
+
+
+        
       ]
     },
 
