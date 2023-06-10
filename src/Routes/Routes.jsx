@@ -11,8 +11,8 @@ import NotFoundPage from "../Pages/NotFoundPage";
 import PrivateRoute from "./PrivateRoute";
 import Secret from "../Pages/Secret";
 import RecordedClass from "../Pages/RecordedClass";
-import MyCart from "../Pages/Dashboard/MyCart";
 import Dashboard from "../Layout/Dashboard";
+import MySelectedClass from "../Pages/Dashboard/MySelectedClass";
 
 
 export  const router = createBrowserRouter([
@@ -63,7 +63,7 @@ export  const router = createBrowserRouter([
       children:[
         {
           path:'mycart',
-          element:<MyCart></MyCart>
+          element:<MySelectedClass></MySelectedClass>
         }
       ]
     },

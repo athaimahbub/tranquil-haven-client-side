@@ -24,10 +24,10 @@ const Classes = () => {
 
     const handleAddToCart = everyClass => {
         console.log(everyClass);
-        const { _id: courseId, image, instructor, price, available_seats } = everyClass;
+        const { _id: courseId, image, name, instructor, price, available_seats } = everyClass;
 
         if (user && user.email) {
-            const selectClass = { courseId, image, instructor, price, available_seats, email: user.email };
+            const selectClass = { courseId, image,name, instructor, price, available_seats, email: user.email };
             fetch('http://localhost:5000/carts',{
                 method:'POST',
                 headers:{
