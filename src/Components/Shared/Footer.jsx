@@ -3,7 +3,7 @@ const Footer = () => {
     return (
         <div>
 
-            <footer className="footer p-10 bg-cyan-50 text-base-content">
+            <footer className="footer mt-12 p-10 bg-cyan-50 text-base-content">
                 <div>
                     <img src={logo} alt="" />
                     <p className="text-cyan-700 font-semibold">Tranquil Haven Yoga and Meditation Academy.<br />Teaching Yoga and Meditation since 1992</p>

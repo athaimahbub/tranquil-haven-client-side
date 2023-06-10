@@ -13,6 +13,7 @@ import Secret from "../Pages/Secret";
 import RecordedClass from "../Pages/RecordedClass";
 import Dashboard from "../Layout/Dashboard";
 import MySelectedClass from "../Pages/Dashboard/MySelectedClass";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 
 export  const router = createBrowserRouter([
@@ -59,11 +60,15 @@ export  const router = createBrowserRouter([
     },
     {
       path:'dashboard',
-      element:<Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
         {
           path:'mycart',
           element:<MySelectedClass></MySelectedClass>
+        },
+        {
+          path:'allusers',
+          element:<AllUsers></AllUsers>
         }
       ]
     },

@@ -22,8 +22,7 @@ const Navbar = () => {
         <li className='text-cyan-600 font-bold text-base'><Link to="/">Home</Link></li>
         <li className='text-cyan-600 font-bold text-base'><Link to="/instructors">Instructors</Link></li>
         <li className='text-cyan-600 font-bold text-base'><Link to="/class">Classes</Link></li>
-        {
-            user &&
+        
             <Link to="/dashboard/mycart">
             <button className="btn">
             <RiShoppingCartFill></RiShoppingCartFill>
@@ -33,7 +32,7 @@ const Navbar = () => {
                 </div>
             </button>
             </Link>
-        }
+        
 
             
         

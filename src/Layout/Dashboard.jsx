@@ -11,6 +11,7 @@ import useCart from "../Hooks/useCart";
 
 const Dashboard = () => {
     const [cart] = useCart();
+    const isAdmin = true;
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -25,23 +26,40 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-full bg-cyan-50 font-semibold  text-cyan-700">
                         {/* Sidebar content here */}
-                        <li><NavLink to="/dashboard/myhome"><AiFillHome></AiFillHome>User Home</NavLink></li>
-                        <li><NavLink to="/dashboard/mycart"><FiShoppingCart>
-                        </FiShoppingCart>
-                            My Selected Classes
-                            <span className="badge badge-secondary">
-                                +{cart?.length || 0}
-                            </span>
-                        </NavLink>
-                        </li>
-                        <li><NavLink to="/dashboard/enrolled"><RiShoppingCartFill></RiShoppingCartFill>My Enrolled Classes</NavLink></li>
-                        <li><NavLink to="/dashboard/history"><BsWalletFill></BsWalletFill>Payment History</NavLink></li>
-                        <li><NavLink to="/dashboard/schedule"><FaCalendarAlt></FaCalendarAlt>Course Schedule</NavLink></li>
 
-                        <div className="divider"></div>
-                        <li><NavLink to="/"><AiFillHome></AiFillHome>Home</NavLink></li>
-                        <li><NavLink to="/class"><SiGoogleclassroom></SiGoogleclassroom>Classes</NavLink></li>
-                        <li><NavLink to="/instructors"><GiTeacher></GiTeacher>Instructors</NavLink></li>
+                        { isAdmin ? <>
+                             <li><NavLink to="/dashboard/myhome"><AiFillHome></AiFillHome>Admin Home</NavLink></li>
+                             
+                             <li><NavLink to="/dashboard/allusers"><BsWalletFill></BsWalletFill>Manage Users</NavLink></li>
+                             <li><NavLink to="/dashboard/schedule"><FaCalendarAlt></FaCalendarAlt>Manage Classes</NavLink></li>
+     
+                             <div className="divider"></div>
+
+                             <li><NavLink to="/"><AiFillHome></AiFillHome>Home</NavLink></li>
+                             <li><NavLink to="/class"><SiGoogleclassroom></SiGoogleclassroom>Classes</NavLink></li>
+                             <li><NavLink to="/instructors"><GiTeacher></GiTeacher>Instructors</NavLink></li>
+                            </> :
+                            <>
+                             <li><NavLink to="/dashboard/myhome"><AiFillHome></AiFillHome>User Home</NavLink></li>
+                             <li><NavLink to="/dashboard/mycart"><FiShoppingCart>
+                             </FiShoppingCart>
+                                 My Selected Classes
+                                 <span className="badge badge-secondary">
+                                     +{cart?.length || 0}
+                                 </span>
+                             </NavLink>
+                             </li>
+                             <li><NavLink to="/dashboard/enrolled"><RiShoppingCartFill></RiShoppingCartFill>My Enrolled Classes</NavLink></li>
+                             <li><NavLink to="/dashboard/history"><BsWalletFill></BsWalletFill>Payment History</NavLink></li>
+                             <li><NavLink to="/dashboard/schedule"><FaCalendarAlt></FaCalendarAlt>Course Schedule</NavLink></li>
+     
+                             <div className="divider"></div>
+                             <li><NavLink to="/"><AiFillHome></AiFillHome>Home</NavLink></li>
+                             <li><NavLink to="/class"><SiGoogleclassroom></SiGoogleclassroom>Classes</NavLink></li>
+                             <li><NavLink to="/instructors"><GiTeacher></GiTeacher>Instructors</NavLink></li>
+                            </>
+                        }
+                       
 
                     </ul>
 
