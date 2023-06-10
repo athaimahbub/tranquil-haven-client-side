@@ -24,10 +24,10 @@ const Navbar = () => {
         <li className='text-cyan-600 font-bold text-base'><Link to="/class">Classes</Link></li>
         {
             user &&
-            <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Dashboard</Link></li>
+            <li className='text-cyan-600 font-bold text-base'><Link to="/dashboard">Dashboard</Link></li>
         }
 
-            <Link to="/">
+            <Link to="/dashboard/mycart">
             <button className="btn">
             <RiShoppingCartFill></RiShoppingCartFill>
                
