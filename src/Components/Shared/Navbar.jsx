@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/tranquileHaven.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
-import {BiUserCircle} from 'react-icons/bi';
+import { BiUserCircle } from 'react-icons/bi';
+import { RiShoppingCartFill } from 'react-icons/ri';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const handleLogOut =() =>{
+    const handleLogOut = () => {
         logOut()
-        .then(() => {})
-        .catch(error => console.log(error));
+            .then(() => { })
+            .catch(error => console.log(error));
     }
 
 
@@ -18,9 +19,19 @@ const Navbar = () => {
         <li className='text-cyan-600 font-bold text-base'><Link to="/instructors">Instructors</Link></li>
         <li className='text-cyan-600 font-bold text-base'><Link to="/class">Classes</Link></li>
         {
-            user && 
+            user &&
             <li className='text-cyan-600 font-bold text-base'><Link to="/blogs">Dashboard</Link></li>
         }
+
+            <Link to="/">
+            <button className="btn">
+            <RiShoppingCartFill></RiShoppingCartFill>
+               
+                <div className="badge badge-secondary">+0</div>
+            </button>
+            </Link>
+        
+
 
 
     </>
@@ -37,7 +48,7 @@ const Navbar = () => {
                             {HeaderItems}
                         </ul>
                     </div>
-                    
+
                     <img src={logo}></img>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -46,7 +57,7 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                
+
                 <div className="navbar-end">
 
                     {user ? <>
@@ -59,7 +70,7 @@ const Navbar = () => {
                     </> : <>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                
+
                                 <BiUserCircle className="h-10 w-10 text-cyan-600"></BiUserCircle>
                             </div>
                         </label>
@@ -68,9 +79,9 @@ const Navbar = () => {
                     }
 
                 </div>
-                </div>
             </div>
-            );
+        </div>
+    );
 };
 
-            export default Navbar;
+export default Navbar;

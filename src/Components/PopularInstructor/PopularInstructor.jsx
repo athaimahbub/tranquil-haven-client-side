@@ -27,7 +27,7 @@ const PopularInstructor = () => {
     );
     // Get the top 6 instructors
     topInstructors = sortedInstructors.slice(0, 6);
-    console.log(topInstructors)
+    // console.log(topInstructors)
   }
     
       return (
