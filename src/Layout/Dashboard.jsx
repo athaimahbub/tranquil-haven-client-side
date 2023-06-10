@@ -7,11 +7,14 @@ import { AiFillHome } from 'react-icons/ai';
 import { SiGoogleclassroom } from 'react-icons/si';
 import { GiTeacher } from 'react-icons/gi'
 import useCart from "../Hooks/useCart";
+import useAdmin from "../Hooks/useAdmin";
 
 
 const Dashboard = () => {
     const [cart] = useCart();
-    const isAdmin = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
+
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -22,9 +25,10 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side bg-cyan-50">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full bg-cyan-50 font-semibold  text-cyan-700">
+                    <h2 className='text-center mt-8 mb-2 text-2xl text-cyan-700 font-bold'>Tranquil Haven</h2><span className="ml-10 text-cyan-700 font-bold">........................................................</span>
+                    <ul className="menu p-4 w-80 h-full  font-semibold  text-cyan-700">
                         {/* Sidebar content here */}
 
                         { isAdmin ? <>
