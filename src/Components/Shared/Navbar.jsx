@@ -4,9 +4,13 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { BiUserCircle } from 'react-icons/bi';
 import { RiShoppingCartFill } from 'react-icons/ri';
+import useCart from '../../Hooks/useCart';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [cart] = useCart();
+
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -27,7 +31,9 @@ const Navbar = () => {
             <button className="btn">
             <RiShoppingCartFill></RiShoppingCartFill>
                
-                <div className="badge badge-secondary">+0</div>
+                <div className="badge badge-secondary">
+                    +{cart?.length || 0}
+                </div>
             </button>
             </Link>
         
