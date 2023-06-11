@@ -29,37 +29,37 @@ const Gallery = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2" >
           {/* Photo items will be added here */}
           <div className="w-full h-48 md:h-auto md:aspect-w-1 md:aspect-h-1  rounded " data-aos="zoom-out-right" data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000">
+     data-aos-duration="500">
              <img src={galleryImg1} className="w-full rounded-lg" />  
           </div>
           <div className="w-full h-48 md:h-auto md:aspect-w-1 md:aspect-h-1  rounded " data-aos="zoom-out-up" data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000">
+     data-aos-duration="500">
              <img src={galleryImg2} className="w-full h-full rounded-lg" />  
           </div>
           <div className="w-full h-48 md:h-auto md:aspect-w-1 md:aspect-h-1  rounded" data-aos="zoom-out-up" data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000">
+     data-aos-duration="500">
              <img src={galleryImg3} className="w-full h-full rounded-lg" />  
           </div>
           {/* border-solid border-2 border-blue-400  */}
           <div className="w-full h-48 md:h-auto md:aspect-w-1 md:aspect-h-1 rounded" data-aos="zoom-out-left" data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000">
+     data-aos-duration="500">
              <img src={galleryImg4} className="w-full h-full rounded-lg" />  
           </div>
           {/* secound row */}
           <div className="w-full h-48 md:h-auto md:aspect-w-1 md:aspect-h-1 rounded" data-aos="zoom-out-right" data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000">
+     data-aos-duration="500">
              <img src={galleryImg5} className="w-full  rounded-lg" />  
           </div>
           <div className="w-full h-48 md:h-auto md:aspect-w-1 md:aspect-h-1 rounded" data-aos="zoom-out-up" data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000">
+     data-aos-duration="500">
              <img src={galleryImg6} className="w-full h-full rounded-lg" />  
           </div>
           <div className="w-full h-48 md:h-auto md:aspect-w-1 md:aspect-h-1 rounded" data-aos="zoom-out-up" data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000">
+     data-aos-duration="500">
              <img src={galleryImg7} className="w-full h-full rounded-lg" />  
           </div>
           <div className="w-full h-48 md:h-auto md:aspect-w-1 md:aspect-h-1  rounded" data-aos="zoom-out-left" data-aos-easing="ease-out-cubic"
-     data-aos-duration="1000">
+     data-aos-duration="500">
              <img src={galleryImg8} className="w-full h-full rounded-lg" />  
           </div>
         </div>

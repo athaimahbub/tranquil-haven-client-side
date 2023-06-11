@@ -37,8 +37,24 @@ const AllUsers = () => {
     }
 
 
-    const handleMakeInstructor = () => {
-
+    const handleMakeInstructor = user => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.modifiedCount) {
+                refetch();
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: `${user.name} is an Instructor Now!`,
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
+            });
     }
 
     const handleDelete = () =>{
@@ -59,7 +75,7 @@ const AllUsers = () => {
                             <th>Email</th>
                             <th>Role</th>
                             <th>Role</th>
-                            <th>Action</th>
+                            {/* <th>Action</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -82,9 +98,9 @@ const AllUsers = () => {
                                      <button onClick={() => handleMakeAdmin(user)} className="btn btn-sm bg-cyan-600 hover:bg-cyan-700 text-white"><FaUserShield></FaUserShield></button>
                                     }
                                 </td>
-                                <td>
+                                {/* <td>
                                 <button onClick={() => handleDelete(user)} className="btn btn-sm bg-red-600 hover:bg-red-700 text-white"><RiDeleteBinFill></RiDeleteBinFill></button>
-                                </td>
+                                </td> */}
                             </tr>)
                         }
                         
