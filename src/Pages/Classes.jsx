@@ -7,8 +7,8 @@ import useCart from '../Hooks/useCart';
 
 const Classes = () => {
     const { user } = useContext(AuthContext);
-    const [,refetch] = useCart();
-    const navigate =useNavigate();
+    const [, refetch] = useCart();
+    const navigate = useNavigate();
     const location = useLocation();
     const [allClasses, setClasses] = useState([]);
 
@@ -27,17 +27,30 @@ const Classes = () => {
         const { _id: courseId, image, name, instructor, price, available_seats } = everyClass;
 
         if (user && user.email) {
-            const selectClass = { courseId, image,name, instructor, price, available_seats, email: user.email };
-            fetch('http://localhost:5000/carts',{
-                method:'POST',
-                headers:{
+            const selectClass = { courseId, image, name, instructor, price, available_seats, email: user.email };
+
+            // New Added=========================================
+            // if (user.role === 'admin' || user.role === 'instructor') {
+            //     Swal.fire({
+            //         title: 'Cannot Select',
+            //         text: 'You are logged in as admin/instructor',
+            //         icon: 'error',
+            //         confirmButtonText: 'OK',
+            //     });
+            //     return;
+            // }
+            // ======================================
+
+            fetch('http://localhost:5000/carts', {
+                method: 'POST',
+                headers: {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(selectClass)
             })
                 .then(response => response.json())
                 .then(data => {
-                    if(data.insertedId){
+                    if (data.insertedId) {
                         refetch(); //fetch update value
                         Swal.fire({
                             position: 'top-end',
@@ -45,10 +58,10 @@ const Classes = () => {
                             title: 'Your class has been selected',
                             showConfirmButton: false,
                             timer: 1500
-                          })
+                        })
                     }
-                    else{
-                     
+                    else {
+
                         Swal.fire({
                             title: 'Please Login first',
                             text: "You won't be able to select class before Login!",
@@ -57,15 +70,15 @@ const Classes = () => {
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
                             confirmButtonText: 'Login'
-                          }).then((result) => {
+                        }).then((result) => {
                             if (result.isConfirmed) {
-                              
-                                navigate('/login', {state: {from: location}})
-                              
+
+                                navigate('/login', { state: { from: location } })
+
                             }
-                          })
+                        })
                     }
-                    
+
                 })
         }
     }
@@ -95,6 +108,8 @@ const Classes = () => {
                                 }
                                 
                             </div>
+
+                            
 
                         </div>
                     </div>

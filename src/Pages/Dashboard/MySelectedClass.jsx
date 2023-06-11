@@ -2,6 +2,7 @@ import React from 'react';
 import useCart from '../../Hooks/useCart';
 import {RiDeleteBinFill} from 'react-icons/ri';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MySelectedClass = () => {
     const [cart, refetch] = useCart();
@@ -42,7 +43,7 @@ const MySelectedClass = () => {
             <div className='flex justify-evenly mb-6'>
                 <h3 className='text-2xl font-semibold text-cyan-600'>Total Selected Classes: {cart.length}</h3>
                 <h3 className='text-2xl font-semibold text-cyan-600'>Total Price: ${total}</h3>
-                <button className='btn btn-warning btn-sm font-bold text-white'>Pay</button>
+                <Link to='/dashboard/payment'><button className='btn btn-warning btn-sm font-bold text-white'>Pay</button></Link>
             </div>
 
             <div className="overflow-x-auto text-slate-600">

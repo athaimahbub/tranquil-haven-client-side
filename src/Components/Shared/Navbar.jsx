@@ -5,10 +5,12 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { BiUserCircle } from 'react-icons/bi';
 import { RiShoppingCartFill } from 'react-icons/ri';
 import useCart from '../../Hooks/useCart';
+import useAdmin from '../../Hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [cart] = useCart();
+    const [isAdmin] = useAdmin();
 
 
     const handleLogOut = () => {
@@ -22,7 +24,13 @@ const Navbar = () => {
         <li className='text-cyan-600 font-bold text-base'><Link to="/">Home</Link></li>
         <li className='text-cyan-600 font-bold text-base'><Link to="/instructors">Instructors</Link></li>
         <li className='text-cyan-600 font-bold text-base'><Link to="/class">Classes</Link></li>
-        
+        {
+             isAdmin ? 
+             <li className='text-cyan-600 font-bold text-base'><Link to="/dashboard/adminHome">Dashboard</Link></li>:
+             <li className='text-cyan-600 font-bold text-base'><Link to="/dashboard/userHome">Dashboard</Link></li>
+
+        }
+
             <Link to="/dashboard/mycart">
             <button className="btn">
             <RiShoppingCartFill></RiShoppingCartFill>
@@ -32,12 +40,6 @@ const Navbar = () => {
                 </div>
             </button>
             </Link>
-        
-
-            
-        
-
-
 
     </>
     return (
