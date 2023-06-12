@@ -9,7 +9,8 @@ const useAxiosSecure = () => {
   const navigate = useNavigate(); 
 
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://summer-camp-tranquil-haven-production.up.railway.app', 
+    
   });
 
   useEffect(() => {

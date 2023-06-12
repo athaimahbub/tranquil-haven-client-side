@@ -98,12 +98,12 @@ const Dashboard = () => {
                                      Payment History
                                  </NavLink>
                              </li>
-                             <li>
+                             {/* <li>
                                  <NavLink to="/dashboard/schedule">
                                      <FaCalendarAlt />
                                      Course Schedule
                                  </NavLink>
-                             </li>
+                             </li> */}
                              <div className="divider"></div>
 
                              <li><NavLink to="/"><AiFillHome></AiFillHome>Home</NavLink></li>

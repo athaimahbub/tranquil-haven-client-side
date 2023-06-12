@@ -23,7 +23,7 @@ const AdminHome = () => {
 
                 <div className="stat">
                     <div className="stat-figure text-secondary">
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> */}
+                 
                         <ImStatsBars className="w-28 h-8 text-orange-500"></ImStatsBars>
                     </div>
                     <div className="stat-title">Revenue</div>
@@ -33,7 +33,7 @@ const AdminHome = () => {
 
                 <div className="stat">
                     <div className="stat-figure text-secondary">
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg> */} <FaUser className='w-28 h-8 text-cyan-500'></FaUser>
+                         <FaUser className='w-28 h-8 text-cyan-500'></FaUser>
                     </div>
                     <div className="stat-title">Users</div>
                     <div className="stat-value">{stats.users}</div>
@@ -41,7 +41,7 @@ const AdminHome = () => {
                 </div>
                 <div className="stat">
                     <div className="stat-figure text-secondary">
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg> */} <FaUsers className='w-28 h-8 text-cyan-500'></FaUsers>
+                         <FaUsers className='w-28 h-8 text-cyan-500'></FaUsers>
                     </div>
                     <div className="stat-title">Classes</div>
                     <div className="stat-value">{stats.classes}</div>

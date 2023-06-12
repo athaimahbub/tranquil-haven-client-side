@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useManageClass from '../../Hooks/useManageClass';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
+
 const ManageClass = () => {
     const [classes, , refetch] = useManageClass();
     const [axiosSecure] = useAxiosSecure();
 
+    const [handleClass, setClasses] = useState([]);
+    const handleApprove = item => {
+        const updatedClasses = [handleClass];
+        const index = updatedClasses.findIndex(classItem => classItem._id === item._id);
+        if (index !== -1) {
+            updatedClasses[index].status = 'Approved';
+            setClasses(updatedClasses);
+        }
+    };
+
     const handleDelete = item => {
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "You want to deny?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Denied!'
         }).then((result) => {
             if (result.isConfirmed) {
 
@@ -24,9 +35,9 @@ const ManageClass = () => {
                     .then(res => {
                         console.log('deleted res', res.data);
                         if (res.data.deletedCount > 0) {
-                            refetch();
+                            // refetch();
                             Swal.fire(
-                                'Deleted!',
+                                'Denied!',
                                 'Instructor class has been denied',
                                 'success'
                             )
@@ -51,8 +62,9 @@ const ManageClass = () => {
                             <th>Instructor</th>
                             <th>Email</th>
                             <th>Available_Seat</th>
-                            <th>Price</th>
+                            
                             <th>Status</th>
+                            <th>Price</th>
                             <th>Approve</th>
                             <th>Deny</th>
                             <th>FeedBack</th>
@@ -87,9 +99,10 @@ const ManageClass = () => {
                                     {item.available_seats}
                                 </td>
                                 <td>Pending</td>
-                                <td className="text-right">${item.price}</td>
+                                <td >${item.price}</td>
                                 <td>
-                                <button className="btn btn-ghost btn-sm bg-green-600  text-white"><FaTrashAlt></FaTrashAlt></button>
+                                
+                                <button onClick={() => handleApprove(item)} className="btn btn-ghost btn-sm bg-green-600  text-white"><FaTrashAlt></FaTrashAlt></button>
                                 </td>
                                 <td>
                                     <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600 btn-sm text-white"><FaTrashAlt></FaTrashAlt></button>

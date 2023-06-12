@@ -42,7 +42,7 @@ const Login = () => {
                 console.log(user);
 
                 const saveUser = { name: user.displayName, email: user.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://summer-camp-tranquil-haven-production.up.railway.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

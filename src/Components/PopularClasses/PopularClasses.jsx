@@ -6,7 +6,7 @@ const PopularClasses = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://summer-camp-tranquil-haven-production.up.railway.app/classes')
             .then(response => response.json())
             .then(data => {
                 setClasses(data)

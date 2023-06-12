@@ -12,7 +12,7 @@ const useCart = () => {
         queryKey: ['carts', user?.email],
         enabled: !loading,
         // queryFn: async () => {
-        //     const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`, { headers: {
+        //     const res = await fetch(`https://summer-camp-tranquil-haven-production.up.railway.app/carts?email=${user?.email}`, { headers: {
         //         authorization: `bearer ${token}`
         //     }})
         //     return res.json();
@@ -30,7 +30,7 @@ const useCart = () => {
     // const {refetch, data: cart = []} = useQuery({
     //     queryKey: ['carts', user?.email],
     //     queryFn: async () =>{
-    //         const res =await fetch(`http://localhost:5000/carts?email=${user?.email}`)
+    //         const res =await fetch(`https://summer-camp-tranquil-haven-production.up.railway.app/carts?email=${user?.email}`)
     //         return res.json();
     //     }
     // })

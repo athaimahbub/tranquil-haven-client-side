@@ -31,7 +31,9 @@ const Navbar = () => {
 
         }
 
-            <Link to="/dashboard/mycart">
+            {
+                !isAdmin && (
+                    <Link to="/dashboard/mycart">
             <button className="btn">
             <RiShoppingCartFill></RiShoppingCartFill>
                
@@ -41,6 +43,8 @@ const Navbar = () => {
             </button>
             </Link>
 
+                )
+            }
     </>
     return (
         <div>

@@ -13,7 +13,7 @@ const Classes = () => {
     const [allClasses, setClasses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://summer-camp-tranquil-haven-production.up.railway.app/classes')
             .then(response => response.json())
             .then(data => {
                 setClasses(data)
@@ -41,7 +41,7 @@ const Classes = () => {
             // }
             // ======================================
 
-            fetch('http://localhost:5000/carts', {
+            fetch('https://summer-camp-tranquil-haven-production.up.railway.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

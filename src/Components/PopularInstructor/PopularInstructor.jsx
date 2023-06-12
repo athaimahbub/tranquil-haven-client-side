@@ -8,7 +8,7 @@ const PopularInstructor = () => {
   
   
     useEffect(() => {
-      fetch('http://localhost:5000/instructors')
+      fetch('https://summer-camp-tranquil-haven-production.up.railway.app/instructors')
         .then(response => response.json())
         .then(data => {
           setInstructors(data)

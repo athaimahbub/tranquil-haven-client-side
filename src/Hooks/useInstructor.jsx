@@ -7,7 +7,7 @@ const useInstructor = () => {
 //   const[loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/instructors')
+    fetch('https://summer-camp-tranquil-haven-production.up.railway.app/instructors')
       .then(response => response.json())
       .then(data => {
         setInstructors(data)
@@ -27,7 +27,7 @@ export default useInstructor;
 //     // const [instructor, setInstructor] = useState([]);
 //     // const[loading, setLoading] = useState(true);
 //     // useEffect(() => {
-//     //     fetch('http://localhost:5000/instructors')
+//     //     fetch('https://summer-camp-tranquil-haven-production.up.railway.app/instructors')
 //     //     .then(res => res.json())
 //     //     .then(data => {
             
