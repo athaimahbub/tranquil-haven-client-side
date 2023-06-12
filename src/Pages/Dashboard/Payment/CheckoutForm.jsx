@@ -7,6 +7,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
+
 const CheckoutForm = ({ cart, price }) => {
     const stripe = useStripe();
     const elements = useElements();
@@ -16,6 +17,7 @@ const CheckoutForm = ({ cart, price }) => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
+
 
     useEffect(() => {
         if (price > 0) {
@@ -126,6 +128,9 @@ const CheckoutForm = ({ cart, price }) => {
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
             {transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>}
+
+            
+            
         </>
     );
 };

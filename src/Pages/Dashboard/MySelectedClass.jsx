@@ -46,6 +46,8 @@ const MySelectedClass = () => {
                 <Link to='/dashboard/payment'><button className='btn btn-warning btn-sm font-bold text-white'>Pay</button></Link>
             </div>
 
+            <span className='pl-20 text-pink-600'>If you don't want to enroll any course, delete that class before pay.</span>
+
             <div className="overflow-x-auto text-slate-600">
                 <table className="table ">
                     {/* head */}
